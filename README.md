@@ -13,5 +13,7 @@ Now, imagine, how would that look like if each of x, y and z were changed to arr
 This thought inspired me at that moment to make this complex vector visualizer.
 
 Here you can modify vectors and take their dot products. 
-Dot product means "similarity" between two vectors, so try to see how complex vectors look like each other by changing parameters.
-I hope this toy gives both you and me a new and funny way to visualize and interiorize entities called "complex vectors".
+Dot product means "similarity" between two vectors, so try to see **how** complex vectors look like each other by changing parameters. For example, dot product in complex vectors results in another complex number. What does the angle of that resulting number has to do with _similarity of vectors_. How everything affects every other thing??? What is the meaning of numbers??? (Okay, this was me exaggerating)
+
+
+I hope this toy gives both you and me a new and funny way to visualize and interiorize entities called "complex vectors". Have fun!
