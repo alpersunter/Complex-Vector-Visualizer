@@ -1,3 +1,20 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.vector {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 10px;
+}
+img {
+    box-sizing: border-box;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    height: 900px;
+}
 .box {
     width: 300px;
     height: 300px;
@@ -8,10 +25,12 @@
     /* Font büyüklüğü (width / 20)px  */
     font: 15px 'Fira Sans', sans-serif;
 }
+
 .box canvas {
     display: flex;
     position: absolute;
 }
+
 .box input {
     box-sizing: border-box;
     padding: 5% 7%;
@@ -21,11 +40,13 @@
     font: inherit;
     display: none;
 }
+
 .box:hover canvas {
     z-index: -1;
     /* display: none; */
     opacity: 0.3;
 }
+
 .box:hover input {
     display: flex;
 }
