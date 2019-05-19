@@ -17,4 +17,4 @@ Dot product means "similarity" between two vectors, so try to see **how** comple
 
 
 I hope this toy gives both you and me a new and funny way to visualize and interiorize entities called "complex vectors". 
-# Have fun!#
+# Have fun!
