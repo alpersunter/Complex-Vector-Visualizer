@@ -61,14 +61,14 @@ let equals_sketch = function (p) {
 
     let one;
     p.setup = function () {
-        p.createCanvas(300, 300)
+        p.createCanvas(500, 500)
         one = p.width / 2 - 20;
         p.noLoop();
     }
     p.draw = function () {
         p.background(250,200,210);
         let z = p.dot();
-        console.log("Result: " + z);
+        console.log("Result: " + z.toString());
         show(z);
     }
 
