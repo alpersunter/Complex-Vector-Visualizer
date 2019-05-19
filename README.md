@@ -1,4 +1,5 @@
 # Complex Vector Visualizer
+_Currently, I am still working on it._
 Visualize complex vectors like you never did!
 
 I was reading *A First Course in Wavelets with Fourier Analysis* by Boggess & Narcowich. In chapter zero, they define dot (inner) product of vectors with complex components. I know complex numbers and their properties. I always think of them as arrows in complex plane. In chapter 0 they wrote some properties that those vectors satisfy.  All of those properties were clear if I were to apply formulas and do maths. But unless I do some substitution, I couldn't see them. I needed a visual intuition!
