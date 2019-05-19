@@ -3,7 +3,7 @@ _Currently, I am still working on code._
 
 ## Visualize complex vectors like you never did!
 
-I was reading *A First Course in Wavelets with Fourier Analysis* by Boggess & Narcowich. In chapter zero, they define dot (inner) product of vectors with complex components. I know complex numbers and their properties. I always think of them as arrows in complex plane. In chapter 0 they wrote some properties that dot product of those vectors satisfy.  All of those properties were clear if I were to apply formulas and do maths. But unless I do some substitution, I couldn't see them. I needed a visual intuition!
+I was reading *A First Course in Wavelets with Fourier Analysis* by Boggess & Narcowich. In chapter zero, they define dot (inner) product of vectors with complex components. I know complex numbers and their properties. I always think of them as arrows in complex plane. There, they wrote some properties that dot product of those vectors satisfy.  All of those properties were clear if I were to apply formulas and do maths. But unless I do some substitution, I couldn't see them. I needed a visual intuition!
 
 I wondered for few minutes and then an idea stroke me: What if, each component of a vector, was not represented by digits but rather by arrows. Imagine your plain old 3D vector:
 
