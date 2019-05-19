@@ -1,4 +1,4 @@
-# Complex-Vector-Visualizer
+# Complex Vector Visualizer
 Visualize complex vectors like you never did!
 
 I was reading *A First Course in Wavelets with Fourier Analysis* by Boggess & Narcowich. In chapter zero, they define dot (inner) product of vectors with complex components. I know complex numbers and their properties. I always think of them as arrows in complex plane. In chapter 0 they wrote some properties that those vectors satisfy.  All of those properties were clear if I were to apply formulas and do maths. But unless I do some substitution, I couldn't see them. I needed a visual intuition!
@@ -16,4 +16,5 @@ Here you can modify vectors and take their dot products.
 Dot product means "similarity" between two vectors, so try to see **how** complex vectors look like each other by changing parameters. For example, dot product in complex vectors results in another complex number. What does the angle of that resulting number has to do with _similarity of vectors_. How everything affects every other thing??? What is the meaning of numbers??? (Okay, this was me exaggerating)
 
 
-I hope this toy gives both you and me a new and funny way to visualize and interiorize entities called "complex vectors". Have fun!
+I hope this toy gives both you and me a new and funny way to visualize and interiorize entities called "complex vectors". 
+# Have fun!#
