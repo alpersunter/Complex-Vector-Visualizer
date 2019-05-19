@@ -1,3 +1,43 @@
+// Common functions between sketches:
+function complexUnitCircle(p, one) {
+    // // Write labels "i" and "1" indicating imaginary and real units
+    // p.textSize(20);
+    // p.noStroke();
+    // // Red for i
+    // p.fill(230, 0, 0);
+    // p.text("i", p.width / 2 + 10, 18);
+    // // Green for 1
+    // p.fill(0, 180, 0);
+    // p.text("1", p.width - 20, p.height / 2 - 10);
+
+    // Draw axes
+    p.strokeWeight(2);
+    // Red for imaginary
+    p.stroke(230, 0, 0);
+    p.line(p.width / 2, 0, p.width / 2, p.height);
+    // Green for real
+    p.stroke(0, 180, 0);
+    p.line(0, p.height / 2, p.width, p.height / 2);
+
+    // Draw the unit circle
+    p.noFill();
+    p.stroke(50);
+    p.strokeWeight(1);
+    p.circle(p.width / 2, p.height / 2, 2 * one);
+}
+function show(p, w, one) {
+    p.push();
+    p.strokeWeight(3);
+    p.stroke(87, 144, 193);
+    p.translate(p.width / 2, p.height / 2);
+    w = w.mul(new Complex(one, 0));
+    p.line(0, 0, w.re, -w.im);
+    p.noStroke();
+    p.fill(87, 144, 193);
+    p.circle(w.re, -w.im, p.width / 20);
+    p.pop();
+}
+
 // Sketch for each component
 let sketch = function (p) {
     let one;
@@ -9,49 +49,11 @@ let sketch = function (p) {
     };
     p.draw = function () {
         p.background(255);
-        complexUnitCircle();
-        show(p.W);
+        complexUnitCircle(p, one);
+        show(p, p.W, one);
     };
     p.zoomBy = function (z){
         one *= z;
-    }
-    function complexUnitCircle() {
-        // // Write labels "i" and "1" indicating imaginary and real units
-        // p.textSize(20);
-        // p.noStroke();
-        // // Red for i
-        // p.fill(230, 0, 0);
-        // p.text("i", p.width / 2 + 10, 18);
-        // // Green for 1
-        // p.fill(0, 180, 0);
-        // p.text("1", p.width - 20, p.height / 2 - 10);
-
-        // Draw axes
-        p.strokeWeight(2);
-        // Red for imaginary
-        p.stroke(230, 0, 0);
-        p.line(p.width / 2, 0, p.width / 2, p.height);
-        // Green for real
-        p.stroke(0, 180, 0);
-        p.line(0, p.height / 2, p.width, p.height / 2);
-
-        // Draw the unit circle
-        p.noFill();
-        p.stroke(50);
-        p.strokeWeight(1);
-        p.circle(p.width / 2, p.height / 2, 2 * one);
-    }
-    function show(w) {
-        p.push();
-        p.strokeWeight(3);
-        p.stroke(87, 144, 193);
-        p.translate(p.width / 2, p.height / 2);
-        w = w.mul(new Complex(one, 0));
-        p.line(0, 0, w.re, -w.im);
-        p.noStroke();
-        p.fill(87, 144, 193);
-        p.circle(w.re, -w.im, p.width / 20);
-        p.pop();
     }
 }
 
@@ -65,14 +67,15 @@ let equals_sketch = function (p) {
     let one;
     p.setup = function () {
         p.createCanvas(p.windowWidth*0.4, p.windowWidth*0.4);
-        one = p.width / 2 - 20;
+        one = p.width / 10;
         p.noLoop();
     }
     p.draw = function () {
         p.background(250, 200, 210);
         let z = p.dot();
         console.log("Result: " + z.toString());
-        show(z);
+        complexUnitCircle(p, one);
+        show(p, z, one);
     }
     p.zoomBy = function (z) {
         one *= z;
@@ -96,20 +99,6 @@ let equals_sketch = function (p) {
             throw new Error("Vector sizes don't match!");
         }
         return sum;
-    }
-
-    // Duplicate codee!!!!!!!!!!
-    function show(w) {
-        p.push();
-        p.strokeWeight(3);
-        p.stroke(87, 144, 193);
-        p.translate(p.width / 2, p.height / 2);
-        w = w.mul(new Complex(one, 0));
-        p.line(0, 0, w.re, -w.im);
-        p.noStroke();
-        p.fill(87, 144, 193);
-        p.circle(w.re, -w.im, p.width / 20);
-        p.pop();
     }
 }
 // Zs: array of p5 instances
