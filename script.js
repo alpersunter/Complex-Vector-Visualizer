@@ -2,7 +2,7 @@
 let sketch = function (p) {
     let one;
     p.setup = function () {
-        p.createCanvas(300, 300);
+        p.createCanvas(p.windowHeight*0.26, p.windowHeight*0.26);
         p.W = Complex['ZERO'];
         one = p.width / 2 - 20;
         p.noLoop();
@@ -12,6 +12,9 @@ let sketch = function (p) {
         complexUnitCircle();
         show(p.W);
     };
+    p.zoomBy = function (z){
+        one *= z;
+    }
     function complexUnitCircle() {
         // // Write labels "i" and "1" indicating imaginary and real units
         // p.textSize(20);
@@ -61,17 +64,19 @@ let equals_sketch = function (p) {
 
     let one;
     p.setup = function () {
-        p.createCanvas(500, 500)
+        p.createCanvas(p.windowWidth*0.4, p.windowWidth*0.4);
         one = p.width / 2 - 20;
         p.noLoop();
     }
     p.draw = function () {
-        p.background(250,200,210);
+        p.background(250, 200, 210);
         let z = p.dot();
         console.log("Result: " + z.toString());
         show(z);
     }
-
+    p.zoomBy = function (z) {
+        one *= z;
+    }
     // Calculates dot product
     p.dot = function () {
         // Dot product is calculated by first conjugating each component of second argument (p.w)
@@ -109,6 +114,9 @@ let equals_sketch = function (p) {
 }
 // Zs: array of p5 instances
 let Zs = [];
+
+// GLOBAL ZOOM FOR EVERY VIEW
+let GLOBAL_ZOOM = 1;
 
 const welcome = "Hey, curious!\nFeel free to play with my code.\nIf you need any help, reach me at alpersunter@mail.ru or at https://github.com/alpersunter\nHappy inspecting :)";
 window.onload = function () {
@@ -189,4 +197,29 @@ window.onload = function () {
         // Sonra da redraw
         Z_Eq.redraw();
     });
+
+    // Change scale of boxes by scrolling
+    let zoom = function (event) {
+        event.preventDefault();
+
+        if (event.deltaY < 0) {
+            // Zoom in
+            GLOBAL_ZOOM = 1.2;
+        }
+        else {
+            // Zoom out
+            GLOBAL_ZOOM = 0.8;
+        }
+
+        // Restrict scale
+        GLOBAL_ZOOM = Math.min(Math.max(.125, GLOBAL_ZOOM), 4);
+        Zs.forEach(element => {
+            element.zoomBy(GLOBAL_ZOOM);
+            element.redraw();
+        });
+        Z_Eq.zoomBy(GLOBAL_ZOOM);
+        Z_Eq.redraw();
+    };
+    // Listen for mouse wheel
+    document.getElementById("main").addEventListener("wheel", zoom);
 }
