@@ -1,5 +1,7 @@
 # Complex Vector Visualizer
-_Currently, I am still working on code._
+_Currently, I am still working on code._ 
+ - Move mouse over a component to edit
+ - Scroll mouse wheel to change scale
 
 ## Visualize complex vectors like you never did!
 
