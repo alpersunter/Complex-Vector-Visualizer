@@ -5,6 +5,8 @@ _Currently, I am still working on code._
 
 I was reading *A First Course in Wavelets with Fourier Analysis* by Boggess & Narcowich. In chapter zero, they define dot (inner) product of vectors with complex components. I know complex numbers and their properties. I always think of them as arrows in complex plane. There, they wrote some properties that dot product of those vectors satisfy.  All of those properties were clear if I were to apply formulas and do maths. But unless I do some substitution, I couldn't see them. I needed a visual intuition!
 
+I always looked at the _dot product_ (also 2D kernel convolutions and function correlations) as **similarity queries** between two given information. So, naturally, I asked "When everything was real, result of the dot product was _a number_ and its _positivity_ was giving me how similar were operand data. If components are not just numbers but _arrows_(I always thought complex numbers as arrows, never as a + bi), how would that similarity query result? Moreover, what does that mean for similarity of two vectors to be something _complex_ or -as beloved James Grime says- _compound_?"
+
 I pondered for few minutes and then an idea stroke me: What if, each component of a vector, was not represented by digits but rather by arrows. Imagine your plain old 3D vector:
 
 ![3D Vector](https://latex.codecogs.com/gif.latex?%5CLARGE%20%5Cbegin%7Bpmatrix%7D%20x%5C%5C%20y%5C%5C%20z%5C%5C%20%5Cend%7Bpmatrix%7D) 
