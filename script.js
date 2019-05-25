@@ -111,7 +111,7 @@ const welcome = "Hey, curious!\nFeel free to play with my code.\nIf you need any
 window.onload = function () {
     console.log(welcome);
 
-    // Get vectors
+    // Get vectors (DIV's whose class is VECTOR)
     const vectors = Array.from(document.getElementsByClassName("vector"));
     let componentUpdate = new CustomEvent("componentUpdate", {
         detail: {
@@ -119,14 +119,14 @@ window.onload = function () {
         }
     });
     // Fill those vectors with components
-    for (let i = 0; i < vectors.length; i++) {
+    for (let i = 0; i < vectors.length; i++) {  // For each div with class "vector" in body
         const vector = vectors[i];
-        for (let j = 0; j < 3; j++) {
+        for (let j = 0; j < 3; j++) {           // For each component of a vector
             // Create "box"
             let box = document.createElement("div");
             // Set its class
             box.className = "box";
-            // Add box as a child to body
+            // Add box as a child to current "vector"
             vector.appendChild(box);
             box.id = "Z_" + i.toString() + "_" + j.toString();
             // Create "input"
