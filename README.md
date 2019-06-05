@@ -1,7 +1,9 @@
 # Complex Vector Visualizer
+Live at: https://alpersunter.github.io/Complex-Vector-Visualizer/free/
 _Currently, I am still working on code._ 
- - Move mouse over a component to edit
- - Scroll mouse wheel to change scale
+ - Move mouse over a component to edit [DONE]
+ - Scroll mouse wheel to change scale [DONE]
+ - How to calculate? 
 
 ## Visualize complex vectors like you never did!
 
