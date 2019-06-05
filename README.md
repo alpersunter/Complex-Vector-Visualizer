@@ -1,5 +1,6 @@
 # Complex Vector Visualizer
-Live at: https://alpersunter.github.io/Complex-Vector-Visualizer/free/
+Live at: <a href="https://alpersunter.github.io/Complex-Vector-Visualizer/free/">HERE</a>
+
 _Currently, I am still working on code._ 
  - Move mouse over a component to edit [DONE]
  - Scroll mouse wheel to change scale [DONE]
