@@ -1,95 +1,3 @@
-// Common functions between sketches:
-function complexUnitCircle(p, one) {
-    // // Write labels "i" and "1" indicating imaginary and real units
-    // p.textSize(20);
-    // p.noStroke();
-    // // Red for i
-    // p.fill(230, 0, 0);
-    // p.text("i", p.width / 2 + 10, 18);
-    // // Green for 1
-    // p.fill(0, 180, 0);
-    // p.text("1", p.width - 20, p.height / 2 - 10);
-
-    // Draw axes
-    p.strokeWeight(2);
-    // Red for imaginary
-    p.stroke('#CD0000');
-    p.line(p.width / 2, 0, p.width / 2, p.height);
-    // Green for real
-    p.stroke('#00CD00');
-    p.line(0, p.height / 2, p.width, p.height / 2);
-
-    // Draw the unit circle
-    p.noFill();
-    p.stroke(47, 79, 79);
-    p.strokeWeight(1);
-    p.circle(p.width / 2, p.height / 2, 2 * one);
-}
-function show(p, w, one, ghost = false) {
-    p.push();
-    p.strokeWeight(3);
-    if (!ghost) {
-        p.stroke(47,79,79, 220);
-        p.fill(47,79,79, 220);
-    } else {
-        p.stroke(47,79,79, 80);
-        p.fill(47,79,79, 80);
-    }
-
-    p.translate(p.width / 2, p.height / 2);
-    w = w.mul(new Complex(one, 0));
-    p.line(0, 0, w.re, -w.im);
-    p.noStroke();
-
-    p.circle(w.re, -w.im, p.width / 20);
-    p.pop();
-}
-
-// Sketch for each component
-// unaware of its surroundings and only controlled by ´W´ and ´zoomBy´
-let sketch = function (p) {
-    let one;
-    let canvas;
-    p.setup = function () {
-        canvas = p.createCanvas(p.windowHeight * 0.26, p.windowHeight * 0.26);
-        canvas.elt.addEventListener("mousemove", e => {
-            e.target.dispatchEvent(componentUpdate);
-        });
-        canvas.elt.addEventListener("click", e => {
-            e.target.dispatchEvent(componentUpdate);
-        });
-        p.W = Complex['ZERO'];          // This is anchored (only modified when mouse clicks down)
-        p.W_ghost = Complex['ZERO'];    // This is ghost (actively modified by mouse position)
-        one = p.width / 2 - 20;
-        // p.noLoop();
-    };
-    p.draw = function () {
-        p.background(250);
-        complexUnitCircle(p, one);
-
-        // Draw vector from center to cursor (only if mouse if hovering)
-        const hovering = p.mouseX >= 0 && p.mouseX <= p.width && p.mouseY >= 0 && p.mouseY <= p.height;
-        if (hovering) {
-            p.line(p.width / 2, p.height / 2, p.mouseX, p.mouseY);
-            // Calculate real and complex components of that vector
-            const re = (p.mouseX - p.width / 2) / one;
-            const im = (p.height / 2 - p.mouseY) / one;
-            p.W_ghost = new Complex(re, im);
-            show(p, p.W_ghost, one, true);
-            // If user clicks, anchor that vector.
-            if (p.mouseIsPressed) {
-                p.W = p.W_ghost;
-            }
-        } else {
-            p.W_ghost = p.W;
-        }
-        show(p, p.W, one);
-    };
-    p.zoomBy = function (z) {
-        one *= z;
-    }
-}
-
 // Sketch for result
 let equals_sketch = function (p) {
     // ANCHOR
@@ -144,18 +52,7 @@ let equals_sketch = function (p) {
 // Zs: array of p5 instances
 let Zs = [];
 
-// GLOBAL ZOOM FOR EVERY VIEW
-let GLOBAL_ZOOM = 1;
 
-// Global event:
-var componentUpdate = new CustomEvent("componentUpdate", {
-    bubbles: true,
-    detail: {
-        hazcheeseburger: true // I didn't remove this line, because it does not cause any harm and I think z is a funny replacement for s.
-    }
-});
-
-const welcome = "Hey, curious!\nFeel free to play with my code.\nIf you need any help, reach me at alpersunter@mail.ru or at https://github.com/alpersunter\nHappy inspecting :)";
 window.onload = function () {
     console.log(welcome);
 
@@ -179,7 +76,7 @@ window.onload = function () {
             // Add input as a child to box
             box.appendChild(input);
             */
-            let z = new p5(sketch, box.id);     // Create new p5 INSIDE of the NEW created BOX
+            let z = new p5(editable_sketch, box.id);     // Create new p5 INSIDE of the NEW created BOX
             Zs.push(z);                         // 
         }
         /*

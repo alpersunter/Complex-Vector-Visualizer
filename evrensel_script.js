@@ -55,7 +55,7 @@ var componentUpdate = new CustomEvent("componentUpdate", {
         hazcheeseburger: true // I didn't remove this line, because it does not cause any harm and I think z is a funny replacement for s.
     }
 });
-
+var welcome = "Hey, curious!\nFeel free to play with my code.\nIf you need any help, reach me at alpersunter@mail.ru or at https://github.com/alpersunter\nHappy inspecting :)";
 // Sketch for each component
 // unaware of its surroundings and only controlled by ´W´ and ´zoomBy´
 let editable_sketch = function (p) {
