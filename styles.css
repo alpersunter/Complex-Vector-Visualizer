@@ -18,6 +18,11 @@
     font-size: 1vw;
 }
 
+.menu a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .menu button:hover {
     background: whitesmoke;
 }
