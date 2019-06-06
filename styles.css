@@ -2,27 +2,31 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: 3vh 10vw;
+    justify-content: space-around;
+    padding: 1.5vh 0;
     background-color: darkslategrey;
 }
-.menu input {
-    border-radius: 25px;
+
+.menu button {
+    border-radius: 100vw;
     background: white;
-    padding: 10px 20px;
+    padding: 0.5vw 1vw;
     color: darkslategrey;
     min-width: 10vw;
     margin-left: auto;
     margin-right: auto;
-    font-size: 2vh;
+    font-size: 1vw;
 }
-.menu input:hover {
+
+.menu button:hover {
     background: whitesmoke;
 }
+
 body {
-    background-color:white;
-    margin:0px;
+    background-color: white;
+    margin: 0px;
 }
+
 .wrapper {
     display: flex;
     flex-direction: row;
@@ -43,8 +47,8 @@ img {
 }
 
 .box {
-    width: 26vh;
-    height: 26vh;
+    width: 40vh;
+    height: 40vh;
     float: left;
     display: flex;
     align-items: center;
