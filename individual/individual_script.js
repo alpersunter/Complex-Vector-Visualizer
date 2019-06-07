@@ -148,6 +148,8 @@ let static_sketch = function (p) {
             if (p.showPie) {
                 const alpha = anchor.arg();
                 p.push();
+                p.stroke(148, 0, 211, 220);
+                p.strokeWeight(2);
                 p.colorMode(p.RGB, 180);
                 p.translate(p.width / 2, p.height / 2);
                 p.fill(Math.abs(alpha / Math.PI * 180), 180 - Math.abs(alpha / Math.PI * 180), 0, 80);
