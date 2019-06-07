@@ -44,12 +44,22 @@
                 <div class="box" id="overlap"></div>
             </div>
             <div class="vw">
-                <p>\(v\cdot\bar{w}\)</p>
+                <p>\(\color{rgb(251, 139, 36)}w\), is \(v\cdot\bar{w}\) much similar to \(\color{rgb(79, 175, 214)}v\):</p>
                 <!-- Net similarity score -->
                 <div class="box" id="score"></div>
                 <div class="info">
-                    <h2>How it is calculated?</h2>
-                    <h3>Parametric form</h3>
+                    <p>Similarity between two complex numbers. (More "real positive" means more similar.)</p>
+                    <h2>How is it calculated?</h2>
+                    <h3>Polar form</h3>
+                    <p>
+                        Assume \(\color{rgb(79, 175, 214)}v = ae^{i\color{rgb(59, 155, 214)}\alpha}\) and
+                        \(\color{rgb(251, 139, 36)}w = be^{i\color{rgb(251, 119, 16)}\beta}\).
+                        Therefore\(\bar{\color{rgb(251, 139, 36)}w}=be^{i(-\color{rgb(251, 119, 16)}\beta)}\).<br>
+                        \( \color{rgb(79, 175, 214)}v \cdot \bar{\color{rgb(251, 139, 36)}w} = ae^{i\color{rgb(59, 155,
+                        214)}\alpha}\cdot be^{i(-\color{rgb(251, 119, 16)}\beta)}\)<br>
+                        \(= abe^{i(\color{rgb(59, 155, 214)}\alpha - \color{rgb(251, 119, 16)}\beta)}\)
+                    </p>
+                    <h3>Rectangular form</h3>
                     <p>
                         Assume \(\color{rgb(79, 175, 214)}v = a + b\color{#CD0000}i\) and \(\color{rgb(251, 139, 36)}w = c + d\color{#CD0000}i\). Therefore\(\bar{\color{rgb(251, 139, 36)}w}=c-d\color{#CD0000}i\).<br>
                         \(  \color{rgb(79, 175, 214)}v   \cdot   \bar{\color{rgb(251, 139, 36)}w}    =   (a+b\color{#CD0000}i)\cdot(c-d\color{#CD0000}i)\)<br>

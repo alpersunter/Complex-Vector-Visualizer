@@ -10,7 +10,7 @@ p {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0fr 1fr;
   grid-template-areas: "v w vw" "ol ol vw";
 }
 
@@ -26,8 +26,11 @@ p {
 
 .box {
   float: none;
-  display: inline-block;
+  display: inline-flexbox;
   box-shadow: 5px 5px 20px 5px darkslategray;
+  width: 15vw;
+  height: 15vw;
+  margin:auto;
 }
 
 .v {
@@ -44,6 +47,9 @@ p {
 
 .vw {
   grid-area: vw;
+  display: flex;
+  flex-direction: column;
+
 }
 .info {
   margin: 3%;
@@ -52,7 +58,14 @@ p {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   box-shadow: 0px 0px 10px 2px darkslategray;
+  overflow: auto;
+  max-height: 30vh;
 }
 .info p{
   font-size: inherit;
 }
+#overlap {
+  height: 40vh;
+  width:40vh;
+}
+

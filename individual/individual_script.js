@@ -12,21 +12,67 @@ let overlap_sketch = function (p) {
         p.w_ghost = Complex['ZERO'];
         p.one = p.width / 2 - 20;
         p.noLoop();
-        
+
     }
     p.draw = function () {
         p.background(250);
         complexUnitCircle(p);
+        {// draw alpha and beta
+            p.translate(p.width / 2, p.height / 2);
+            p.strokeWeight(5);
+            const offset = 5;
+            {// angle for v
+                const c = p.color(59, 155, 214, 220)
+                p.stroke(c);
+                const alpha = p.v.arg();
+                if (alpha > 0) {
+                    p.arc(0, 0, 2 * p.one + offset, 2 * p.one + offset, -alpha, 0);
+                } else if (alpha < 0) {
+                    p.arc(0, 0, 2 * p.one + offset, 2 * p.one + offset, 0, -alpha);
+                }
+                p.push();
+                p.rotate(-alpha);
+                p.translate(p.one + 3 * offset, 0);
+                p.rotate(alpha);
+                p.fill(c);
+                p.textSize(20);
+                p.strokeWeight(1);
+                p.text("α", 0, 0);
+                p.pop();
+            }
+            {// angle for w
+                const c = p.color(251, 119, 16, 220);
+                p.stroke(c);
+                const beta = p.w.arg();
+                if (beta > 0) {
+                    p.arc(0, 0, 2 * p.one - offset, 2 * p.one - offset, -beta, 0);
+                } else if (beta < 0) {
+                    p.arc(0, 0, 2 * p.one - offset, 2 * p.one - offset, 0, -beta);
+                }
+                p.push();
+                p.rotate(-beta);
+                p.translate(p.one + 3 * offset, 0);
+                p.rotate(beta);
+                p.fill(c);
+                p.textSize(20);
+                p.strokeWeight(1);
+                p.text("β", 0, 0);
+                p.pop();
+            }
+            p.translate(-p.width / 2, -p.height / 2);
+        }
+        
         // arc/angle starting from w, ending at v
         // Çok zor oldu, ama sonunda oldu: olmamış
         // Şimdi oldu!
         if (p.w.abs() > 0 || p.v.abs() > 0) {
             show(p, p.v, false, p.color(79, 175, 214, 220));
             show(p, p.w, false, p.color(251, 139, 36, 220));
-            p.stroke(41, 23, 32);
+            p.stroke(148, 0, 211, 220);
+            p.strokeWeight(2);
             const start = p.w.arg() < 0 ? p.w.arg() + 2 * Math.PI : p.w.arg();
             const end = p.v.arg() < 0 ? p.v.arg() + 2 * Math.PI : p.v.arg();
-            const dia = p.one;
+            const dia = 2 * p.one;
             const delta = end - start;
             let delta_normalized = delta;
             let delta_normalized_degree = delta_normalized * 180 / Math.PI;
@@ -40,14 +86,14 @@ let overlap_sketch = function (p) {
                 delta_normalized = delta;
                 delta_normalized_degree = delta_normalized * 180 / Math.PI;
                 p.fill(Math.abs(delta_normalized_degree), 180 - Math.abs(delta_normalized_degree), 0, 56);
-                p.arc(0, 0, dia, dia, -end, -start, p.PIE);
+                p.arc(0, 0, dia, dia, -end, -start/*p.PIE*/);
                 //console.log("A")
             } else if (delta > Math.PI) {
                 // endden starta çiz
                 delta_normalized = delta - 2 * Math.PI;
                 delta_normalized_degree = delta_normalized * 180 / Math.PI;
                 p.fill(Math.abs(delta_normalized_degree), 180 - Math.abs(delta_normalized_degree), 0, 56);
-                p.arc(0, 0, dia, dia, -start, -end, p.PIE);
+                p.arc(0, 0, dia, dia, -start, -end/*p.PIE*/);
 
                 //console.log("B")
 
@@ -56,7 +102,7 @@ let overlap_sketch = function (p) {
                 delta_normalized = delta;
                 delta_normalized_degree = delta_normalized * 180 / Math.PI;
                 p.fill(Math.abs(delta_normalized_degree), 180 - Math.abs(delta_normalized_degree), 0, 56);
-                p.arc(0, 0, dia, dia, -start, -end, p.PIE);
+                p.arc(0, 0, dia, dia, -start, -end/*p.PIE*/);
                 //console.log("C")
 
             } else if (delta < -Math.PI) {
@@ -64,18 +110,18 @@ let overlap_sketch = function (p) {
                 delta_normalized = delta + 2 * Math.PI;
                 delta_normalized_degree = delta_normalized * 180 / Math.PI;
                 p.fill(Math.abs(delta_normalized_degree), 180 - Math.abs(delta_normalized_degree), 0, 80);
-                p.arc(0, 0, dia, dia, -end, -start, p.PIE);
+                p.arc(0, 0, dia, dia, -end, -start/*p.PIE*/);
                 //console.log("D")
             }
             p.rotate(-end);
-            const h = p.constrain(delta_normalized * dia / 2 / 5, -p.width / 20, p.width / 20);
+            const h = p.constrain(delta_normalized * dia / 2 / 5, -p.width / 30, p.width / 30);
             //console.log(delta_normalized_degree);
             p.line(dia / 2, 0, dia / 2 - h / 1.73, 2 * h / 1.73);
             p.line(dia / 2, 0, dia / 2 + h / 1.73, 2 * h / 1.73);
             p.pop();
             p.colorMode(p.RGB, 255);
             p.textSize(20);
-            p.text(delta_normalized_degree, p.width / 2, p.height / 2);
+            //p.text(delta_normalized_degree, p.width / 2, p.height / 2);
         }
 
         // arc/angle starting from w_ghost, ending at v_ghost
