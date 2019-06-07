@@ -1,3 +1,10 @@
+body {
+    margin: 0px;
+    background: whitesmoke;
+    background-image: linear-gradient(darkslategrey .01em, transparent 0.1em), linear-gradient(90deg, darkslategrey .01em, transparent 0.1em);
+    background-size: 2em 2em;
+}
+
 .menu {
     display: flex;
     flex-direction: row;
@@ -28,30 +35,10 @@
     background: whitesmoke;
 }
 
-body {
-    margin: 0px;
-    background: whitesmoke;
-    background-image: linear-gradient(darkslategrey .01em, transparent 0.1em), linear-gradient(90deg, darkslategrey .01em, transparent 0.1em);
-    background-size: 2em 2em;
-}
-
 .wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.vector {
-    display: inline-flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
-img {
-    box-sizing: border-box;
-    margin: 0 5px;
-    width: 2vw;
-    height: 90vh;
 }
 
 .box {
@@ -69,18 +56,4 @@ img {
 .box canvas {
     display: flex;
     position: absolute;
-}
-
-/* .box input {
-    box-sizing: border-box;
-    padding: 5% 7%;
-    margin: 3% 0;
-    border: 1px solid gray;
-    border-radius: 4px;
-    font: inherit;
-    display: none;
-} */
-
-#equals:hover canvas {
-    opacity: unset;
 }

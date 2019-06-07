@@ -12,10 +12,13 @@ let equals_sketch = function (p) {
     // Second argument of dot product
     p.wg = [Complex['ZERO'], Complex['ZERO'], Complex['ZERO']];
 
-    let one;
+    
     p.setup = function () {
-        p.createCanvas(p.windowWidth * 0.3, p.windowWidth * 0.3);
-        one = p.width / 10;
+        p.canvas = p.createCanvas(100, 100);
+        const w = p.canvas.elt.parentElement.clientWidth;
+        const h = p.canvas.elt.parentElement.clientHeight;
+        p.resizeCanvas(w, h);
+        p.one = p.width / 10;
         p.noLoop();
     }
     p.draw = function () {
@@ -23,12 +26,12 @@ let equals_sketch = function (p) {
         let z = p.dot(p.v, p.w);
         let zg = p.dot(p.vg, p.wg);     // tüm bileşenler anchordan olmalı, üstünde hayalet olan hariç
         // console.log("Result: " + z.toString());
-        complexUnitCircle(p, one);
-        show(p, z, one);
-        show(p, zg, one, true);
+        complexUnitCircle(p, p.one);
+        show(p, z);
+        show(p, zg, p.one, true);
     }
     p.zoomBy = function (z) {
-        one *= z;
+        p.one *= z;
     }
     // Calculates dot product
     p.dot = function (vec, wec) {
@@ -174,4 +177,15 @@ window.onload = function () {
     };
     // Listen for mouse wheel
     document.getElementById("main").addEventListener("wheel", zoom);
+
+    let resizeHandler = (function (e) {
+        const p5s = Zs.concat([Z_Eq]);
+        p5s.forEach(p => {
+            const w = p.canvas.elt.parentElement.clientWidth;
+            const h = p.canvas.elt.parentElement.clientHeight;
+            p.resizeCanvas(w, h);
+            p.one = p.width / 2 - 20;
+        });
+    });
+    window.addEventListener("resize", resizeHandler);
 }
