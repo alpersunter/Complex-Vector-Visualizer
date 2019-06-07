@@ -10,10 +10,10 @@
     <script src="../complex.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="../evrensel_script.js"></script>
-
     <!--    Özelleşiyor:    -->
     <script src="individual_script.js"></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    <link rel="stylesheet" href="grid.css">
 </head>
 <!-- Vektörün bileşenleri en büyük 4 olabilir. Çıktı da en büyük 7 olabilir. -->
 
@@ -27,23 +27,43 @@
         <button type="button">Additivity</button>
     </div>
     <div class="wrapper">
-        <!-- First complex number v -->
-        <div class="box" id="v">
 
-        </div>
-        <!-- Other complex number w -->
-        <div class="box" id="w">
-
-        </div>
-        <!-- Their similarity means a: they are pointing in the same direction b: product of their magnitudes is a large value -->
-        <div class="box" id="overlap">
-
-        </div>
-        <!-- Net similarity score -->
-        <div class="box" id="score">
-
+        <div class="grid-container">
+            <div class="v">
+                <p>Complex number \(\color{rgb(79, 175, 214)}v:\)</p>
+                <!-- First complex number v -->
+                <div class="box" id="v"></div>
+            </div>
+            <div class="w">
+                <p>Complex number \(\color{rgb(251, 139, 36)}w:\)</p>
+                <!-- Other complex number w -->
+                <div class="box" id="w"></div>
+            </div>
+            <div class="ol">
+                <!-- Their similarity means a: they are pointing in the same direction b: product of their magnitudes is a large value -->
+                <div class="box" id="overlap"></div>
+            </div>
+            <div class="vw">
+                <p>\(v\cdot\bar{w}\)</p>
+                <!-- Net similarity score -->
+                <div class="box" id="score"></div>
+                <div class="info">
+                    <h2>How it is calculated?</h2>
+                    <h3>Parametric form</h3>
+                    <p>
+                        Assume \(\color{rgb(79, 175, 214)}v = a + b\color{#CD0000}i\) and \(\color{rgb(251, 139, 36)}w = c + d\color{#CD0000}i\). Therefore\(\bar{\color{rgb(251, 139, 36)}w}=c-d\color{#CD0000}i\).<br>
+                        \(  \color{rgb(79, 175, 214)}v   \cdot   \bar{\color{rgb(251, 139, 36)}w}    =   (a+b\color{#CD0000}i)\cdot(c-d\color{#CD0000}i)\)<br>
+                        \(= ac -ad\color{#CD0000}i + b\color{#CD0000}ic -bd\color{#CD0000}{i^2}\) (\(\color{#CD0000}{i^2}\) is \(\color{#00CD00}{-1}\))<br>
+                        \(= (ac+bd) - (ad-bc)\color{#CD0000}i\)
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
+    <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a
+            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+            href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0
+            BY</a></div>
 </body>
 
 </html>

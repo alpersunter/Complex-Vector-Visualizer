@@ -5,6 +5,7 @@
     justify-content: space-around;
     padding: 1.5vh 0;
     background-color: darkslategrey;
+    margin-bottom: 10px;
 }
 
 .menu button {
@@ -28,8 +29,10 @@
 }
 
 body {
-    background-color: white;
     margin: 0px;
+    background: whitesmoke;
+    background-image: linear-gradient(darkslategrey .01em, transparent 0.1em), linear-gradient(90deg, darkslategrey .01em, transparent 0.1em);
+    background-size: 2em 2em;
 }
 
 .wrapper {
@@ -52,15 +55,15 @@ img {
 }
 
 .box {
-    width: 40vh;
-    height: 40vh;
+    width: 20vw;
+    height: 20vw;
     float: left;
     display: flex;
     align-items: center;
     justify-content: center;
     /* Font büyüklüğü (width / 20)px  */
     font: 1.3vh 'Fira Sans', sans-serif;
-    margin: 2px
+    margin: 2px;
 }
 
 .box canvas {

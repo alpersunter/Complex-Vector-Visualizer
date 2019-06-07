@@ -1,0 +1,58 @@
+
+
+p {
+  margin: 0px;
+  padding: 2%;
+  font-size: 3vw;
+}
+
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "v w vw" "ol ol vw";
+}
+
+.grid-container>div {
+  border-color: darkslategray;
+  border-style: dashed;
+  border-width: 0.1em;
+  border-radius: 1em;
+  margin: 1em;
+  background-color: rgba(47, 79, 79, 0.05);
+  text-align: center;
+}
+
+.box {
+  float: none;
+  display: inline-block;
+  box-shadow: 5px 5px 20px 5px darkslategray;
+}
+
+.v {
+  grid-area: v;
+}
+
+.w {
+  grid-area: w;
+}
+
+.ol {
+  grid-area: ol;
+}
+
+.vw {
+  grid-area: vw;
+}
+.info {
+  margin: 3%;
+  padding: 3%;
+  font-size: 1.3vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px darkslategray;
+}
+.info p{
+  font-size: inherit;
+}
