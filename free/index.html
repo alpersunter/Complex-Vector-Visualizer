@@ -7,12 +7,13 @@
     <title>Free Mode</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="freestyle.css">
     <script src="../complex.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
     <script src="../evrensel_script.js"></script>
     <!--    Özelleşiyor:    -->
     <script src="free_mode_script.js"></script>
-    <link rel="stylesheet" href="freestyle.css">
 </head>
 <!-- Vektörün bileşenleri en büyük 4 olabilir. Çıktı da en büyük 7 olabilir. -->
 
@@ -20,22 +21,29 @@
     <div class="menu">
         <a href="../free/"><button type="button">Free Mode</button></a>
         <a href="../individual/"><button type="button">Individual<br>Similarity</button></a>
-        <button type="button">Positivity</button>
+        <a href="../positivity/"><button type="button">Positivity</button></a>
         <button type="button">Conjugate<br>Symmetry</button>
         <button type="button">Homogeneity</button>
         <button type="button">Additivity</button>
     </div>
-    <div class="wrapper" id="main">
-        <div class="yey"></div>
-        <div class="vector"></div>
-        <div class="eye"></div>
-        <img src="../imgs/dot.svg" />
-        <div class="yey"></div>
-        <div class="vector"></div>
-        <div class="eye"></div>
-        <img src="../imgs/Equals.svg" style="box-sizing: content-box ; height: 50px;" />
-        <div id="equals" class="box" style="width: 40vw; height: 40vw;"></div>
+    <div class="grid-container" id="main">
+        <div class="vector Vec1"></div>
+        <div class="vector Vec2"></div>
+        <div class="relation info">
+            \[ \langle Z , W \rangle \text{ is the inner product of } Z \text{ and } W\]
+            \[ = \text{Similarity of complex vectors} \]
+            \[ = \sum_{\text{along vector}} {\left(\begin{matrix} \text{Individual similarity} \\ \text{between components} \end{matrix}\right)} \]
+            \[ = \sum_{j=0}^2z_{j}\cdot\overline{w_{j}} \]
+            \[ = \color{rgb(220, 70, 30)}{z_0\overline{w_0}} + \color{rgb(70, 220, 30)}{z_1\overline{w_1}} + \color{rgb(30, 70, 220)}{z_2\overline{w_2}} \]
+        </div>
+        <div class="sum" id="sum"></div>
+        <div class="result" id="equals"></div>
     </div>
+    <!-- <div class="wrapper" id="main">
+        <div class="vector"></div>
+        <div class="vector"></div>
+        <div id="equals" class="box" style="width: 40vw; height: 40vw;"></div>
+    </div> -->
 </body>
 
 </html>

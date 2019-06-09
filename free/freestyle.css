@@ -1,51 +1,42 @@
-
 .vector {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    padding: 10px;
-}
-
-#equals:hover canvas {
-    opacity: unset;
-}
-
-/* .box input {
-    box-sizing: border-box;
-    padding: 5% 7%;
-    margin: 3% 0;
-    border: 1px solid gray;
-    border-radius: 4px;
-    font: inherit;
-    display: none;
-} */
-
-
-img {
-    box-sizing: border-box;
-    margin: 0 5px;
-    width: 2vw;
-    height: 90vh;
 }
 .box {
-    height: 27vh;
-    width: 27vh;
-}
-.yey {
-    height: 80vh;
-    width: 1vw;
-    background-image: url("../imgs/yey.svg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    margin-left: 1px;
-    margin-right: 1px;
+    width: 15vw;
+    height: 15vw;
 }
 
-.eye {
-    height: 80vh;
-    width: 1vw;
-    background-image: url("../imgs/eye.svg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    margin-left: 1px;
-    margin-right: 1px;
+.grid-container {
+    display: grid;
+    grid-template-columns: 15fr 15fr 40fr 25fr;
+    grid-template-rows: 1fr auto auto 1fr;
+    grid-template-areas: 
+    "Vec1 Vec2 .        result"
+    "Vec1 Vec2 relation result" 
+    "Vec1 Vec2 relation result" 
+    "Vec1 Vec2 .        result";
+}
+
+.Vec1 {
+    grid-area: Vec1;
+}
+
+.Vec2 {
+    grid-area: Vec2;
+}
+
+.relation {
+    grid-area: relation;
+    overflow-x: auto;
+    font-size: xx-large;
+}
+
+.result {
+    grid-area: result;
+}
+
+
+.info {
+    max-height: none;
 }

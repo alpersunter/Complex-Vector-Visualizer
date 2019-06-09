@@ -41,7 +41,7 @@ function show(p, w, ghost = false, solid_color = p.color(47, 79, 79, 220), ghost
     p.line(0, 0, w.re, -w.im);
     p.noStroke();
 
-    p.circle(w.re, -w.im, p.width / 20);
+    p.circle(w.re, -w.im, p.constrain(w.abs()/5, 0, p.width/15));
     p.pop();
 }
 
@@ -60,7 +60,7 @@ var welcome = "Hey, curious!\nFeel free to play with my code.\nIf you need any h
 // unaware of its surroundings and only controlled by ´W´ and ´zoomBy´
 let editable_sketch = function (p) {
     p.setup = function () {
-        p.canvas = p.createCanvas(100, 100);
+        p.canvas = p.createCanvas(50, 50);
         const w = p.canvas.elt.parentElement.clientWidth;
         const h = p.canvas.elt.parentElement.clientHeight;
         p.resizeCanvas(w, h);
