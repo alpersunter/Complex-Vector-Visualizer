@@ -4,7 +4,13 @@ Live at: <a href="https://alpersunter.github.io/Complex-Vector-Visualizer/free/"
 _Currently, I am still working on code._ 
  - Move mouse over a component to edit [DONE]
  - Scroll mouse wheel to change scale [DONE]
- - How to calculate? 
+ - How to calculate? [DONE]
+ 
+ - Consider note below:
+
+ <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{150}&space;\langle&space;V,&space;W&space;\rangle" title="\langle V, W \rangle" /> should not be interpreted as "How is W similar to V". It should be reverse. Also for the individual similarity <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{150}&space;v\cdot\overline{w}" title="v\cdot\overline{w}" />, it is not "How much is w similar to v" but rather "How much is v similar to w". Because the angle of w is subtracted from the argument angle of v. If it was <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{150}&space;a\cdot\overline{w}" title="a\cdot\overline{w}" /> or <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{150}&space;b\cdot\overline{w}" title="b\cdot\overline{w}" /> or <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{150}&space;c\cdot\overline{w}" title="c\cdot\overline{w}" /> or etc. each of these operations would subtract the argument angle of w from a, b and c. Which means all of the operations are done *with respect to* w and is the one who all of the v, a, b and c take as a reference. This is why <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{150}&space;v\cdot\overline{w}" title="v\cdot\overline{w}" /> means "How much is v similar to w" and as a direct result, <img src="https://latex.codecogs.com/gif.latex?\inline&space;\dpi{150}&space;\langle&space;V,&space;W&space;\rangle" title="\langle V, W \rangle" /> means "How much is vector V similar to vector W".
+
+ 
 
 ## Visualize complex vectors like you never did!
 
